@@ -1,0 +1,21 @@
+Descarga de todos los cuadernos al mismo tiempo
+Para descargar todos los archivos de Jupyter Workspace al mismo tiempo:
+
+Abre uno de tus cuadernos desde coursera.org.
+En la parte superior derecha, haz clic en el logotipo de Coursera o Jupyter.
+Verás una página de vista de archivo que enumera todos los recursos de Jupyter en tu curso actual. Haz clic en New (Nuevo) y, luego selecciona Terminal para abrir la línea de comandos del sistema.
+Verás abierto un prompt de shell. En el prompt de shell, escribe o pega lo siguiente:
+# Remove the previous archive, if it exists: rm -f ~/workspace.tar.gz && rm  -f ~/work/workspace.tar.gz
+
+# Create a zipped archive of your workspace directory: tar -czf ~/workspace.tar.gz ~/work
+
+# Move the archive into the workspace directory so you can see it: mv ~/workspace.tar.gz ~/work/workspace.tar.gz
+
+Una vez que los comandos se ejecuten correctamente, haz clic en el logotipo de 'Coursera' nuevamente para volver a la vista de archivos.
+En la vista de archivos, selecciona workspace.tar.gz y, luego, haz clic en Download (Descargar). Tu navegador descargará desde el espacio de trabajo el archivo que puedes guardar.
+Elimina el archivo: rm ~/work/workspace.tar.gz*
+Nota: Si tu archivo zip tiene más de 100 MB, deberás dividirlo en archivos más pequeños y descargar cada uno de ellos utilizando los siguientes comandos:
+
+tar -czf - ~/work | split --bytes=100MB - ~/workspace.tar.gz
+
+mv ~/workspace.tar.gz* ~/work/
